@@ -27,7 +27,7 @@ export default function Home({ exploreData, cardsData}) {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    },4000)
+    },8000)
   }, [])
 
   return (
