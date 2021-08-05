@@ -9,7 +9,7 @@ const ToggleTheme = () => {
     return (
         <>
             {theme === 'dark' ? 
-                <BsToggleOn className="text-3xl dark:text-gray-600" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} /> : <BsToggleOff className="text-3xl" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />}
+                <BsToggleOn className="text-3xl dark:text-gray-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} /> : <BsToggleOff className="text-3xl" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />}
             
         </>
     )
