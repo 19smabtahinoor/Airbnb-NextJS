@@ -27,8 +27,9 @@ const Header = () => {
           
         }
     }
-   
-    window.addEventListener("scroll",handleChange)
+    if (process.browser) {
+       window.addEventListener("scroll", handleChange)
+    }
     return (
         <header className={
             header ? "transition duration-300 ease-linear sticky top-0 z-50 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 bg-white shadow-xl py-5 px-5 md:px-10 lg:px-24 xl:px-24" : "sticky top-0 z-50 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 bg-transparent py-5 px-5 md:px-10 lg:px-24 xl:px-24 transition duration-300 ease-linear"}>
