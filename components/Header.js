@@ -11,7 +11,7 @@ const Header = () => {
         md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 bg-transparent shadow-xl py-5 px-5 md:px-10">
             {/* left  */}
             <div className="relative flex items-center h-10 cursor-pointer my-auto col-span-1">
-                <Image src="/../public/assets/airbnb.svg" 
+                <Image src="/assets/airbnb.svg" 
                 layout="fill"
                 objectFit="contain"
                 objectPosition="left"
