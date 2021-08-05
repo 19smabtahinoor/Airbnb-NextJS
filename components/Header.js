@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';
 import { RiGlobalLine } from 'react-icons/ri';
-import { BsToggleOff } from 'react-icons/bs';
-import { BsToggleOn } from 'react-icons/bs';
+import ToggleTheme from './Theme/ToggleTheme';
+
 
 const Header = () => {
     return (
@@ -28,7 +28,7 @@ const Header = () => {
 
             {/* Right  */}
             <div className="col-span-1 flex items-center space-x-3 justify-end text-gray-500 cursor-pointer">
-                <BsToggleOff className="text-2xl"/>
+                <ToggleTheme/>
                 <p className="hidden md:inline">Become a host</p>
                 <RiGlobalLine className="text-xl"/>
 
