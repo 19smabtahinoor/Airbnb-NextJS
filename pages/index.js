@@ -51,7 +51,7 @@ export default function Home({ exploreData, cardsData}) {
             <main className=" px-5 md:px-10 lg:px-24 xl:px-24">
 
               {/* Small Card Section  */}
-              <section>
+              <section className="pt-24">
                 <h2 className="text-3xl font-semibold pb-5 text-gray-800 dark:text-white">Explore Nearby</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pb-12">

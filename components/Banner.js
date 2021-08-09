@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Banner = () => {
     return (
-        <div className="relative -top-24 h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] ">
+        <div className="relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] ">
             <Image src="/assets/mainBanner.jpg"
             layout="fill"
             objectFit="cover"
