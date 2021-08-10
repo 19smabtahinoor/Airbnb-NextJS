@@ -8,8 +8,9 @@ import ToggleTheme from './Theme/ToggleTheme';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
+import { useRouter } from 'next/dist/client/router';
 
-const Header = () => {
+const Header = ({placeholder}) => {
     // const [header,setHeader] = useState(false)
     // const [logo,setLogo] = useState(false)
     // const [icon,setIcon] = useState(false)
@@ -20,6 +21,7 @@ const Header = () => {
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [userCount,setUserCount] = useState(1)
+    const router = useRouter();
     // const handleChange = () => {
     //     if (window.scrollY >= 80) {
     //         setHeader(true)
@@ -68,6 +70,18 @@ const Header = () => {
             return setUserCount(1)
         }
     }
+    //search page 
+    const search = () => {
+        router.push({
+            pathname:'/search',
+            query:{
+                location: searchInput,
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
+                noOfGuests: userCount
+            }
+        })
+    }
 
     return (
         <header className= "transition duration-300 ease-linear sticky top-0 z-50 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 bg-white dark:bg-gray-800 shadow-xl py-5 px-5 md:px-10 lg:px-24 xl:px-24">
@@ -79,7 +93,7 @@ const Header = () => {
                 layout="fill"
                 objectFit="contain"
                 objectPosition="left"
-                    // className={!logo && "filter brightness-0 invert" }
+                onClick={() => router.push("/")}
                 />
             </div>
 
@@ -89,7 +103,7 @@ const Header = () => {
                     <input 
                     className="border-0 flex-grow focus:outline-none bg-transparent text-sm text-gray-600 dark:text-white placeholder-gray-400"
                     type="text"
-                    placeholder="Start your search" 
+                    placeholder={placeholder || "Start your search" }
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}
                     />
@@ -135,7 +149,7 @@ const Header = () => {
 
                     <div className="flex justify-end space-x-6 border-t border-gray-200 pt-6">
                         <button className=" text-gray-400" onClick={resetInput}>Cancel</button>
-                        <button className="rounded-full px-4 py-2 border border-red-400 text-red-400 hover:bg-red-400 hover:text-white transition duration-300 ease-in w-[150px]">Search</button>
+                        <button className="rounded-full px-4 py-2 border border-red-400 text-red-400 hover:bg-red-400 hover:text-white transition duration-300 ease-in w-[150px]" onClick={search}>Search</button>
                     </div>
                 </div>
             )}

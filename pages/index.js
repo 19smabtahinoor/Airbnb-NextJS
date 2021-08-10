@@ -7,27 +7,28 @@ import MediumCard from '../components/MediumCard'
 import { ThemeProvider } from '../components/Theme/themeContext'
 import LargeCard from '../components/LargeCard'
 import Footer from '../components/Footer'
+import Fade from 'react-reveal/Fade';
 
-import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 import { css } from "@emotion/react";
 
 const override = css`
   display: flex;
-  flex-direction:column;
+  flex-direction:row;
   justify-content:center;
   align-items:center;
   min-height:100vh;
   margin: 0 auto;
 `;
 
-export default function Home({ exploreData, cardsData}) {
+export default function Home({ exploreData, cardsData }) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    },8000)
+    }, 1500)
   }, [])
 
   return (
@@ -41,7 +42,7 @@ export default function Home({ exploreData, cardsData}) {
 
         {loading ?
           <>
-            <ClimbingBoxLoader color={'#F87171'} loading={loading} size={20} css={override} />
+            <SyncLoader color={'#F87171'} loading={loading} size={30} css={override} />
           </>
           :
           <>
@@ -52,8 +53,9 @@ export default function Home({ exploreData, cardsData}) {
 
               {/* Small Card Section  */}
               <section className="pt-24">
-                <h2 className="text-3xl font-semibold pb-5 text-gray-800 dark:text-white">Explore Nearby</h2>
-
+                <Fade left>
+                  <h2 className="text-3xl font-semibold pb-5 text-gray-800 dark:text-white">Explore Nearby</h2>
+                </Fade>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pb-12">
 
                   {exploreData.map(({ img, location, distance }) => {
@@ -66,7 +68,9 @@ export default function Home({ exploreData, cardsData}) {
 
               {/* big card section  */}
               <section>
+                <Fade left>
                 <h2 className="text-3xl font-semibold pb-8 text-gray-800 dark:text-white">Live Anywhere</h2>
+                </Fade>
 
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 pb-12 place-items-center lg:place-items-start">
 
@@ -88,10 +92,10 @@ export default function Home({ exploreData, cardsData}) {
               <Footer />
             </main>
           </>
-          }
-        
+        }
 
-       
+
+
       </div>
     </ThemeProvider>
   )

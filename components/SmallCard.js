@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import Zoom from 'react-reveal/Zoom';
+
 const SmallCard = ({ img, location, distance }) => {
     return (
+        <Zoom left>
         <div key={img} className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition duration-300 ease-out dark:hover:bg-gray-700">
 
             {/* left  */}
@@ -14,6 +17,7 @@ const SmallCard = ({ img, location, distance }) => {
                 <h3 className="text-gray-500 dark:text-gray-200">{distance}</h3>
             </div>
         </div>
+        </Zoom>
     )
 }
 

@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components{
+    .button {
+        @apply px-4 py-2 text-red-400 border border-red-400 rounded-full cursor-pointer hover:bg-red-400 hover:text-white hover:shadow-xl active:scale-95 active:bg-red-500 transition duration-200 ease-out select-none
+    }
+}
+
+body{
+    overflow-x:hidden;
+}
